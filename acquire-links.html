@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Acquire Link Opportunities | LinkBridge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7c3bed",
+                        "background-light": "#F8FAFC",
+                        "background-alt": "#f9fafb",
+                        "background-dark": "#171121",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(248, 250, 252, 0.8);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display">
+    <!-- Header -->
+    <nav class="glass-nav sticky top-0 z-50 border-b border-primary/10">
+        <div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">insights</span>
+                <span class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">ButterSwipe</span>
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600" href="#">Audit</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600"
+                    href="#">Keywords</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600" href="#">AI
+                    Analyzer</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-6">
+                    <a href="cart.html" class="relative text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-white rounded-full flex items-center justify-center text-[8px] font-bold text-white">4</span>
+                    </a>
+                    <button class="relative text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-white rounded-full flex items-center justify-center text-[8px] font-bold text-white">3</span>
+                    </button>
+                    <div class="hidden sm:flex items-center gap-4 border-l border-slate-200 pl-6">
+                        <div class="text-right">
+                            <p class="text-xs font-bold text-slate-900">Alex Rivera</p>
+                            <span
+                                class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Pro
+                                Plan</span>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-purple-400 flex items-center justify-center text-white font-bold text-sm border-2 border-white shadow-sm">
+                            AR
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mx-auto flex max-w-[1440px] px-6 py-12 gap-8">
+        <!-- Main Content Area (Left) -->
+        <main class="flex-1 min-w-0">
+            <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+                <a class="hover:text-primary" href="index.html">Home</a>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+                <a class="hover:text-primary" href="audit-dashboard.html">Analysis Dashboard</a>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+                <span class="text-slate-900 font-medium">Acquire Links</span>
+            </nav>
+            <div class="mb-8">
+                <h1 class="text-4xl font-black tracking-tight text-slate-900">Link Opportunities</h1>
+                <p class="mt-2 text-lg text-slate-600 max-w-2xl font-medium">Discover and acquire high-authority
+                    backlinks to boost your domain ranking and outpace competitors.</p>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <div class="flex-1 min-w-0">
+                    <!-- Filters Section -->
+                    <div
+                        class="mb-6 flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm border border-slate-100">
+                        <button
+                            class="flex items-center gap-2 rounded-xl bg-slate-50 px-4 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100 transition-colors">
+                            Price Range <span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+                        </button>
+                        <button
+                            class="flex items-center gap-2 rounded-xl bg-slate-50 px-4 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100 transition-colors">
+                            Competitor Match <span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+                        </button>
+                        <div class="ml-auto flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Sorted by:</span>
+                            <button class="text-sm font-bold text-primary flex items-center gap-1">Relevance <span
+                                    class="material-symbols-outlined text-lg">sort</span></button>
+                        </div>
+                    </div>
+                    <!-- Links Marketplace Table -->
+                    <div class="overflow-hidden rounded-2xl bg-white shadow-sm border border-slate-100">
+                        <div class="min-w-full divide-y divide-slate-100">
+                            <div
+                                class="grid grid-cols-12 gap-4 bg-slate-50/50 px-8 py-5 text-xs font-bold uppercase tracking-wider text-slate-400">
+                                <div class="col-span-4">Source Domain</div>
+                                <div class="col-span-2">Price</div>
+                                <div class="col-span-4">Found In (Metrics)</div>
+                                <div class="col-span-2 text-right">Action</div>
+                            </div>
+                            <!-- Table Rows -->
+                            <!-- Row 1 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">techcrunch.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tech
+                                            &amp; News</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <span class="text-lg font-black text-slate-900">$1,200</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div class="flex flex-col gap-2">
+                                        <div
+                                            class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                            <span class="text-[10px] font-bold text-slate-500">Comp Alpha</span>
+                                            <span class="text-[10px] font-bold text-slate-900">2.4k BL • 45 IR</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                            <span class="text-[10px] font-bold text-slate-500">Market Leader</span>
+                                            <span class="text-[10px] font-bold text-slate-900">12k BL • 82 IR</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 2 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">forbes.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                            Business</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <span class="text-lg font-black text-slate-900">$2,500</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div class="flex flex-col gap-2">
+                                        <div
+                                            class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                            <span class="text-[10px] font-bold text-slate-500">Market Leader</span>
+                                            <span class="text-[10px] font-bold text-slate-900">45k BL • 94 IR</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 3 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">wired.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tech
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <span class="text-lg font-black text-slate-900">$850</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div class="flex flex-col gap-2">
+                                        <div
+                                            class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                            <span class="text-[10px] font-bold text-slate-500">Industry News</span>
+                                            <span class="text-[10px] font-bold text-slate-900">1.8k BL • 39 IR</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 4 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">nytimes.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">News
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2"><span class="text-lg font-black text-slate-900">$3,200</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div
+                                        class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span class="text-[10px] font-bold text-slate-500">Market Leader</span>
+                                        <span class="text-[10px] font-bold text-slate-900">110k BL • 98 IR</span>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 5 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">theverge.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tech
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2"><span class="text-lg font-black text-slate-900">$950</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div
+                                        class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span class="text-[10px] font-bold text-slate-500">Comp Alpha</span>
+                                        <span class="text-[10px] font-bold text-slate-900">5.2k BL • 51 IR</span>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 6 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">hubspot.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                            Marketing</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2"><span class="text-lg font-black text-slate-900">$1,500</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div
+                                        class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span class="text-[10px] font-bold text-slate-500">Market Leader</span>
+                                        <span class="text-[10px] font-bold text-slate-900">22k BL • 78 IR</span>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 7 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">engadget.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tech
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2"><span class="text-lg font-black text-slate-900">$700</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div
+                                        class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span class="text-[10px] font-bold text-slate-500">Comp Alpha</span>
+                                        <span class="text-[10px] font-bold text-slate-900">3.1k BL • 42 IR</span>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 8 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">businessinsider.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                            Business</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2"><span class="text-lg font-black text-slate-900">$1,800</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div
+                                        class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span class="text-[10px] font-bold text-slate-500">Market Leader</span>
+                                        <span class="text-[10px] font-bold text-slate-900">35k BL • 88 IR</span>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 9 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">medium.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Social
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2"><span class="text-lg font-black text-slate-900">$350</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div
+                                        class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span class="text-[10px] font-bold text-slate-500">Industry News</span>
+                                        <span class="text-[10px] font-bold text-slate-900">0.8k BL • 28 IR</span>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Row 10 -->
+                            <div
+                                class="grid grid-cols-12 items-center gap-4 px-8 py-6 hover:bg-slate-50/30 transition-colors border-t border-slate-100">
+                                <div class="col-span-4">
+                                    <div class="min-w-0">
+                                        <p class="truncate font-bold text-slate-900 text-base">techradar.com</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tech
+                                            Reviews</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2"><span class="text-lg font-black text-slate-900">$550</span>
+                                </div>
+                                <div class="col-span-4">
+                                    <div
+                                        class="flex items-center justify-between px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span class="text-[10px] font-bold text-slate-500">Comp Alpha</span>
+                                        <span class="text-[10px] font-bold text-slate-900">1.2k BL • 32 IR</span>
+                                    </div>
+                                </div>
+                                <div class="col-span-2 text-right">
+                                    <button
+                                        class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Acquire
+                                        Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-between border-t border-slate-100 bg-slate-50/30 px-8 py-5">
+                            <p class="text-sm font-bold text-slate-400">Showing <span class="text-slate-900">1-10</span>
+                                of <span class="text-slate-900">154</span> domains</p>
+                            <div class="flex gap-3">
+                                <button
+                                    class="rounded-xl border border-slate-200 bg-white px-5 py-2 text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm">Previous</button>
+                                <button
+                                    class="rounded-xl border border-slate-200 bg-white px-5 py-2 text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar (Right) -->
+                <aside class="w-full lg:w-80 space-y-6 flex-shrink-0">
+                    <!-- Competitor Gaps Section -->
+                    <div class="bg-white rounded-2xl border border-slate-100 p-8 shadow-sm">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="material-symbols-outlined text-primary">groups</span>
+                            <h3 class="font-bold text-lg">Competitor Gaps</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- Card 1 -->
+                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="text-sm font-bold text-slate-900">Competitor Alpha</p>
+                                    <span class="text-xs font-black text-primary">Gap: 45%</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-slate-200 rounded-full">
+                                    <div class="h-full bg-primary rounded-full" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="text-sm font-bold text-slate-900">The Market Leader</p>
+                                    <span class="text-xs font-black text-primary">Gap: 12%</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-slate-200 rounded-full">
+                                    <div class="h-full bg-primary rounded-full" style="width: 12%"></div>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="text-sm font-bold text-slate-900">Industry News Inc.</p>
+                                    <span class="text-xs font-black text-primary">Gap: 88%</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-slate-200 rounded-full">
+                                    <div class="h-full bg-primary rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Authority Roadmap Widget -->
+                    <div class="bg-white rounded-2xl border border-slate-100 p-8 shadow-sm">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="material-symbols-outlined text-primary">route</span>
+                            <h3 class="font-bold text-lg">Authority Roadmap</h3>
+                        </div>
+                        <div class="space-y-4 mb-8">
+                            <!-- Step 1 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary bg-primary flex items-center justify-center mt-0.5">
+                                    <span
+                                        class="material-symbols-outlined text-[12px] font-bold text-white">check</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Audit Site Profile</p>
+                                    <p class="text-[11px] font-medium text-slate-400">Completed 2 days ago</p>
+                                </div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary bg-primary flex items-center justify-center mt-0.5">
+                                    <span
+                                        class="material-symbols-outlined text-[12px] font-bold text-white">check</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Identify Competitor Gaps</p>
+                                    <p class="text-[11px] font-medium text-slate-400">Completed today</p>
+                                </div>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center mt-0.5">
+                                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Acquire 5 High-Trust Links</p>
+                                    <p class="text-[11px] text-primary font-bold uppercase tracking-wider">In Progress
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-slate-200 flex items-center justify-center mt-0.5">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-400">Complete Secure Purchase</p>
+                                    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Upcoming
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Step 5 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-slate-200 flex items-center justify-center mt-0.5">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-400">Monitor Backlink Indexing</p>
+                                    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Final Stage
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gap Summary Box -->
+                        <div class="bg-primary/5 rounded-xl p-5 border border-primary/10">
+                            <p class="text-[10px] font-black text-primary uppercase tracking-widest mb-2">Gap Summary
+                            </p>
+                            <p class="text-sm text-slate-600 mb-4 font-medium">You need <span
+                                    class="text-slate-900 font-black">12 more links</span> to match Competitor B.</p>
+                            <div class="h-2 w-full bg-slate-100 rounded-full mb-2">
+                                <div class="h-full bg-primary rounded-full" style="width: 75%"></div>
+                            </div>
+                            <div class="space-y-3">
+                                <p class="text-[10px] font-bold text-slate-400">75% to authority target</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-20 mt-12">
+        <div class="max-w-[1440px] mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="material-symbols-outlined text-primary text-2xl font-bold">insights</span>
+                        <span class="text-xl font-black tracking-tight">LinkBridge</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed font-medium">
+                        The ultimate authority gap analyzer and marketplace for growth-focused SEO teams.
+                    </p>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-xs uppercase tracking-widest text-slate-900">Product</h6>
+                    <ul class="space-y-4 text-sm font-semibold text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">Gap Analyzer</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Marketplace</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Backlink Monitoring</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-xs uppercase tracking-widest text-slate-900">Resources</h6>
+                    <ul class="space-y-4 text-sm font-semibold text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">SEO Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Knowledge Base</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Webinars</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-xs uppercase tracking-widest text-slate-900">Support</h6>
+                    <ul class="space-y-4 text-sm font-semibold text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">© 2024 LinkBridge SEO Solutions.
+                    All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7C3AED",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#171121",
+                        "background-alt": "#f9fafb",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .radar-grid {
+            background-image: radial-gradient(circle, #7C3AED 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(248, 250, 252, 0.8);
+        }
+
+        .pie-chart {
+            background: conic-gradient(#7C3AED 0% 13.5%,
+                    #94A3B8 13.5% 23.7%,
+                    #1e293b 23.7% 98.7%,
+                    #cbd5e1 98.7% 100%);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+    <!-- Header Section -->
+    <nav class="glass-nav sticky top-0 z-50 border-b border-primary/10">
+        <div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">insights</span>
+                <span class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">ButterSwipe</span>
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                    href="index.html">Audit</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                    href="#">Keywords</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                    href="#">AI Analyzer</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-6">
+                    <a href="cart.html" class="relative text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-white rounded-full flex items-center justify-center text-[8px] font-bold text-white">4</span>
+                    </a>
+                    <button class="relative text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-white dark:border-slate-900 rounded-full flex items-center justify-center text-[8px] font-bold text-white">3</span>
+                    </button>
+                    <div class="hidden sm:flex items-center gap-4 border-l border-slate-200 dark:border-slate-800 pl-6">
+                        <div class="text-right">
+                            <p class="text-xs font-bold text-slate-900 dark:text-white">Alex Rivera</p>
+                            <span
+                                class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Pro
+                                Plan</span>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-purple-400 flex items-center justify-center text-white font-bold text-sm border-2 border-white dark:border-slate-800 shadow-sm">
+                            AR
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="w-full">
+        <!-- Full Width Leaderboard Section -->
+        <section
+            class="w-full py-8 border-b border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
+            <div class="max-w-[1440px] px-6 mx-auto">
+                <div class="mb-8">
+                    <nav
+                        class="flex items-center gap-2 mb-3 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                        <a class="hover:text-primary transition-colors" href="index.html">Home</a>
+                        <span class="text-slate-300">/</span>
+                        <span class="text-slate-600 dark:text-slate-200">Analysis Dashboard</span>
+                    </nav>
+                    <h2 class="text-3xl font-black text-slate-900 dark:text-white">Analysis Dashboard</h2>
+                    <p class="text-slate-500 mt-1">Real-time domain comparison and link intersection for your portfolio.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Your Domain Card -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border-2 border-primary rounded-xl p-5 shadow-lg shadow-primary/5 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-2">
+                            <span
+                                class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Current</span>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Your Domain</p>
+                        <h3 class="font-bold text-slate-900 dark:text-white truncate mb-4">my-awesome-site.com</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Domain Trust</p>
+                                <p class="text-lg font-bold text-primary">84</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Ref Domains</p>
+                                <p class="text-lg font-bold">1.2k</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Backlinks</p>
+                                <p class="text-lg font-bold">14.8k</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Competitor 1 -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-primary/50 transition-colors shadow-sm">
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Competitor A</p>
+                        <h3 class="font-bold text-slate-900 dark:text-white truncate mb-4">competitor-alpha.io</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Domain Trust</p>
+                                <p class="text-lg font-bold text-slate-700 dark:text-slate-300">72</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Ref Domains</p>
+                                <p class="text-lg font-bold">940</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Backlinks</p>
+                                <p class="text-lg font-bold">11.2k</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Competitor 2 -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-primary/50 transition-colors shadow-sm">
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Competitor B</p>
+                        <h3 class="font-bold text-slate-900 dark:text-white truncate mb-4">the-market-leader.com</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Domain Trust</p>
+                                <p class="text-lg font-bold text-slate-700 dark:text-slate-300">91</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Ref Domains</p>
+                                <p class="text-lg font-bold">4.1k</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Backlinks</p>
+                                <p class="text-lg font-bold">82.5k</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Competitor 3 -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-primary/50 transition-colors shadow-sm">
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Competitor C</p>
+                        <h3 class="font-bold text-slate-900 dark:text-white truncate mb-4">emerging-rival.net</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Domain Trust</p>
+                                <p class="text-lg font-bold text-slate-700 dark:text-slate-300">45</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Ref Domains</p>
+                                <p class="text-lg font-bold">210</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">Backlinks</p>
+                                <p class="text-lg font-bold">1.5k</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="max-w-[1440px] mx-auto px-6 py-12">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Content Area -->
+                <div class="flex-1 space-y-8">
+                    <!-- Analysis Grid -->
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                        <!-- Backlinks Comparison (Pie Chart) -->
+                        <div
+                            class="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="flex items-center justify-between mb-8">
+                                <h3 class="font-bold text-lg">Backlinks Comparison</h3>
+                                <span class="material-symbols-outlined text-slate-400 cursor-help"
+                                    title="Proportion of backlinks across all tracked domains">info</span>
+                            </div>
+                            <div class="h-64 flex items-center justify-center">
+                                <div class="relative w-48 h-48">
+                                    <div class="pie-chart w-full h-full"></div>
+                                    <!-- Inner hole for Donut look -->
+                                    <div
+                                        class="absolute inset-8 bg-white dark:bg-slate-900 rounded-full flex flex-col items-center justify-center">
+                                        <p class="text-2xl font-black text-primary">110k</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase">Total Links</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8 grid grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-400">You
+                                        (13.5%)</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 bg-slate-400 rounded-full"></div>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Comp. A
+                                        (10.2%)</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 bg-slate-800 dark:bg-slate-200 rounded-full"></div>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Comp. B
+                                        (75.0%)</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 bg-slate-300 rounded-full"></div>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Comp. C
+                                        (1.3%)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Referring Domains Benchmarking (Vertical Progress Bars) -->
+                        <div
+                            class="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col">
+                            <div class="flex items-center justify-between mb-8">
+                                <h3 class="font-bold text-lg">Ref. Domains Benchmarking</h3>
+                                <div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                                    <button
+                                        class="px-3 py-1 text-xs font-bold rounded-md bg-white dark:bg-slate-700 shadow-sm">12M</button>
+                                    <button class="px-3 py-1 text-xs font-medium text-slate-500">6M</button>
+                                </div>
+                            </div>
+                            <div class="space-y-6 h-64 flex flex-col justify-center">
+                                <!-- Comp B (Leader) -->
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-1">
+                                        <span class="text-slate-500">Comp. B (Leader)</span>
+                                        <span class="text-slate-900 dark:text-white">4,100</span>
+                                    </div>
+                                    <div class="h-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-slate-900 dark:bg-slate-200 rounded-full transition-all duration-1000"
+                                            style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <!-- Your Domain -->
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-1">
+                                        <span class="text-primary">Your Domain</span>
+                                        <span class="text-slate-900 dark:text-white">1,200</span>
+                                    </div>
+                                    <div class="h-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary rounded-full transition-all duration-1000"
+                                            style="width: 29%"></div>
+                                    </div>
+                                </div>
+                                <!-- Comp A -->
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-1">
+                                        <span class="text-slate-500">Comp. A</span>
+                                        <span class="text-slate-700 dark:text-slate-300">940</span>
+                                    </div>
+                                    <div class="h-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-slate-400 rounded-full transition-all duration-1000"
+                                            style="width: 23%"></div>
+                                    </div>
+                                </div>
+                                <!-- Comp C -->
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-1">
+                                        <span class="text-slate-500">Comp. C</span>
+                                        <span class="text-slate-700 dark:text-slate-300">210</span>
+                                    </div>
+                                    <div class="h-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-slate-300 rounded-full transition-all duration-1000"
+                                            style="width: 5%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 bg-primary rounded-sm"></div>
+                                    <span
+                                        class="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">You</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 bg-slate-400 rounded-sm"></div>
+                                    <span
+                                        class="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">Comp.
+                                        A</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 bg-slate-800 dark:bg-slate-200 rounded-sm"></div>
+                                    <span
+                                        class="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">Comp.
+                                        B</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 bg-slate-300 rounded-sm"></div>
+                                    <span
+                                        class="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">Comp.
+                                        C</span>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <a
+                                    href="acquire-links.html"
+                                    class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group">
+                                    <span>128 New Opportunities Today</span>
+                                    <span
+                                        class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">bolt</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Competitor Comparison Table -->
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                        <div
+                            class="p-8 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-bold text-lg">Detailed Domain Comparison</h3>
+                                <p class="text-sm text-slate-500">Metric-by-metric breakdown of your market standing.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 dark:bg-slate-800/50">
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">
+                                            Metrics</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-wider text-primary">
+                                            Your Domain</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">
+                                            Comp. A</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">
+                                            Comp. B</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">
+                                            Comp. C</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            Backlinks</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">14.8k</td>
+                                        <td class="px-8 py-4 text-sm">11.2k</td>
+                                        <td class="px-8 py-4 text-sm">82.5k</td>
+                                        <td class="px-8 py-4 text-sm">1.5k</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            Dofollow Backlinks</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">8.2k</td>
+                                        <td class="px-8 py-4 text-sm">6.1k</td>
+                                        <td class="px-8 py-4 text-sm">54.2k</td>
+                                        <td class="px-8 py-4 text-sm">0.9k</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            Inline Ranks</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">124</td>
+                                        <td class="px-8 py-4 text-sm">82</td>
+                                        <td class="px-8 py-4 text-sm">450</td>
+                                        <td class="px-8 py-4 text-sm">12</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            Ref. Domains</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">1.2k</td>
+                                        <td class="px-8 py-4 text-sm">0.9k</td>
+                                        <td class="px-8 py-4 text-sm">4.1k</td>
+                                        <td class="px-8 py-4 text-sm">0.2k</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            Subnets</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">850</td>
+                                        <td class="px-8 py-4 text-sm">640</td>
+                                        <td class="px-8 py-4 text-sm">2.8k</td>
+                                        <td class="px-8 py-4 text-sm">140</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            IPs</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">1.1k</td>
+                                        <td class="px-8 py-4 text-sm">890</td>
+                                        <td class="px-8 py-4 text-sm">3.9k</td>
+                                        <td class="px-8 py-4 text-sm">190</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            Nofollow Backlinks</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">6.6k</td>
+                                        <td class="px-8 py-4 text-sm">5.1k</td>
+                                        <td class="px-8 py-4 text-sm">28.3k</td>
+                                        <td class="px-8 py-4 text-sm">0.6k</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            Edu Backlinks</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">42</td>
+                                        <td class="px-8 py-4 text-sm">28</td>
+                                        <td class="px-8 py-4 text-sm">156</td>
+                                        <td class="px-8 py-4 text-sm">4</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                        <td class="px-8 py-4 font-semibold text-sm text-slate-700 dark:text-slate-300">
+                                            Gov Backlinks</td>
+                                        <td class="px-8 py-4 font-bold text-sm text-primary">18</td>
+                                        <td class="px-8 py-4 text-sm">12</td>
+                                        <td class="px-8 py-4 text-sm">84</td>
+                                        <td class="px-8 py-4 text-sm">2</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar -->
+                <aside class="w-full lg:w-80 space-y-6">
+                    <!-- Authority Roadmap Widget -->
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-8 shadow-sm">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="material-symbols-outlined text-primary">route</span>
+                            <h3 class="font-bold text-lg">Authority Roadmap</h3>
+                        </div>
+                        <div class="space-y-4 mb-8">
+                            <!-- Step 1 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center mt-0.5">
+                                    <span
+                                        class="material-symbols-outlined text-[12px] font-bold text-primary">check</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-900 dark:text-white">Audit Site Profile
+                                    </p>
+                                    <p class="text-[11px] text-slate-500">Completed 2 days ago</p>
+                                </div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center mt-0.5">
+                                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-900 dark:text-white">Identify Competitor
+                                        Gaps</p>
+                                    <p class="text-[11px] text-primary font-medium">In Progress</p>
+                                </div>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 flex items-center justify-center mt-0.5 border-slate-300 dark:border-slate-700">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-400">Acquire High-Trust Links</p>
+                                    <p class="text-[11px] text-slate-500 font-medium">Next Step</p>
+                                </div>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-center justify-center mt-0.5">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-400">Complete Secure Purchase</p>
+                                    <p class="text-[11px] text-slate-500">Upcoming</p>
+                                </div>
+                            </div>
+                            <!-- Step 5 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-center justify-center mt-0.5">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-400">Monitor Backlink Indexing</p>
+                                    <p class="text-[11px] text-slate-500">Final Stage</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gap Summary Box -->
+                        <div class="bg-primary/5 rounded-xl p-4 border border-primary/10 mb-6">
+                            <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Gap Summary</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">You need <span
+                                    class="text-slate-900 dark:text-white font-bold">12 more links</span> to match
+                                Competitor B.</p>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full mb-2">
+                                <div class="h-full bg-primary rounded-full" style="width: 75%"></div>
+                            </div>
+                            <div class="space-y-3">
+                                <p class="text-[10px] text-slate-400">75% to authority target</p>
+                                <div>
+                                    <span class="inline-flex items-center gap-1 text-[11px] font-bold text-primary hover:underline group"
+                                        href="#">
+                                        <a href="acquire-links.html">Find Links to Bridge This Gap</a>
+                                        <span
+                                            class="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Marketplace Mini Card -->
+                    <div class="block bg-primary hover:bg-primary/95 transition-all rounded-xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden group"
+                        href="#">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="material-symbols-outlined text-white">shopping_cart</span>
+                                <h4 class="font-black text-xl tracking-tight">Acquire Links</h4>
+                            </div>
+                            <p class="text-white/80 text-sm mb-6 leading-relaxed">Bridge your domain gap instantly.
+                                Access our curated marketplace of high-authority niche placements.</p>
+                            <div
+                                class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest bg-white/20 w-fit px-4 py-2 rounded-full mb-6">
+                                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                128 New Opportunities Today
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <a href="acquire-links.html" class="text-white font-black text-lg">Browse Catalog</a>
+                                <span
+                                    class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 opacity-10">
+                            <span class="material-symbols-outlined text-[160px]">rocket_launch</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="material-symbols-outlined text-primary text-2xl font-bold">insights</span>
+                        <span class="text-xl font-black tracking-tight">LinkBridge</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        The ultimate authority gap analyzer and marketplace for growth-focused SEO teams.
+                    </p>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-800">Product</h6>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a class="hover:text-primary" href="#">Gap Analyzer</a></li>
+                        <li><a class="hover:text-primary" href="#">Marketplace</a></li>
+                        <li><a class="hover:text-primary" href="#">Backlink Monitoring</a></li>
+                        <li><a class="hover:text-primary" href="#">API Access</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-800">Resources</h6>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a class="hover:text-primary" href="#">SEO Blog</a></li>
+                        <li><a class="hover:text-primary" href="#">Knowledge Base</a></li>
+                        <li><a class="hover:text-primary" href="#">Webinars</a></li>
+                        <li><a class="hover:text-primary" href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-800">Support</h6>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a class="hover:text-primary" href="#">Contact Us</a></li>
+                        <li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+                        <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-slate-400 text-xs">© 2024 LinkBridge SEO Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cart - LinkBridge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7c3bed",
+                        "background-light": "#F8FAFC",
+                        "background-alt": "#f9fafb",
+                        "background-dark": "#171121",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display">
+    <!-- Header: Full width and fixed at the top -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-slate-200">
+        <div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">insights</span>
+                <span class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">ButterSwipe</span>
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600" href="#">Audit</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600"
+                    href="#">Keywords</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600" href="#">AI
+                    Analyzer</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-6">
+                    <a href="cart.html" class="relative text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-white rounded-full flex items-center justify-center text-[8px] font-bold text-white">4</span>
+                    </a>
+                    <button class="relative text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-white rounded-full flex items-center justify-center text-[8px] font-bold text-white">3</span>
+                    </button>
+                    <div class="hidden sm:flex items-center gap-4 border-l border-slate-200 pl-6">
+                        <div class="text-right">
+                            <p class="text-xs font-bold text-slate-900">Alex Rivera</p>
+                            <span
+                                class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Pro
+                                Plan</span>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-purple-400 flex items-center justify-center text-white font-bold text-sm border-2 border-white shadow-sm">
+                            AR
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Push content down to account for fixed header -->
+    <div class="pt-20">
+        <!-- Breadcrumbs: Directly below header with proper padding -->
+        <div class="max-w-[1440px] mx-auto px-6 py-6">
+            <nav class="flex items-center gap-2 text-sm text-slate-500">
+                <a class="hover:text-primary" href="#">Home</a>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+                <a class="hover:text-primary" href="#">Acquire Links</a>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+                <span class="text-slate-900 font-medium">Cart</span>
+            </nav>
+        </div>
+        <!-- Main Content: Three-column layout -->
+        <main class="max-w-[1440px] mx-auto px-6 pb-20">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Column 1: Left (25%) Authority Roadmap -->
+                <aside class="w-full lg:w-1/4 space-y-6 flex-shrink-0">
+                    <div class="bg-white rounded-2xl border border-slate-100 p-8 shadow-sm">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="material-symbols-outlined text-primary">route</span>
+                            <h3 class="font-bold text-lg">Authority Roadmap</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- Step 1 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary bg-primary flex items-center justify-center mt-0.5">
+                                    <span
+                                        class="material-symbols-outlined text-[12px] font-bold text-white">check</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Audit Site Profile</p>
+                                    <p class="text-[11px] font-medium text-slate-400">Completed</p>
+                                </div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary bg-primary flex items-center justify-center mt-0.5">
+                                    <span
+                                        class="material-symbols-outlined text-[12px] font-bold text-white">check</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Identify Competitor Gaps</p>
+                                    <p class="text-[11px] font-medium text-slate-400">Completed</p>
+                                </div>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary bg-primary flex items-center justify-center mt-0.5">
+                                    <span
+                                        class="material-symbols-outlined text-[12px] font-bold text-white">check</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Select Link Opportunities</p>
+                                    <p class="text-[11px] font-medium text-slate-400">Completed</p>
+                                </div>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center mt-0.5">
+                                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Complete Secure Purchase</p>
+                                    <p class="text-[11px] text-primary font-bold uppercase tracking-wider">In Progress
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Step 5 -->
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-5 h-5 rounded-full border-2 border-slate-200 flex items-center justify-center mt-0.5">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-400">Monitor Backlink Indexing</p>
+                                    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Final Stage
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <!-- Column 2: Center (50%) Cart -->
+                <div class="flex-1 w-full lg:w-1/2 space-y-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h1 class="text-3xl font-black tracking-tight text-slate-900">Cart</h1>
+                        <a class="text-sm font-bold text-primary hover:underline" href="#">Add more links</a>
+                    </div>
+                    <div class="space-y-6">
+                        <!-- Cart Item 1 -->
+                        <div
+                            class="bg-white rounded-[12px] border border-slate-100 p-8 shadow-sm relative group hover:shadow-md transition-shadow">
+                            <button
+                                class="absolute -top-3 -right-3 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-all z-10">
+                                <span class="material-symbols-outlined text-lg font-bold">close</span>
+                            </button>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-bold text-slate-900">techcrunch.com</h4>
+                                    <p class="text-sm font-medium text-slate-500 mt-1">12 competitor matches</p>
+                                </div>
+                                <div class="flex items-center gap-8">
+                                    <button
+                                        class="flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary/80 transition-colors">
+                                        <span class="material-symbols-outlined text-xl">add_circle</span>
+                                        Attach Instructions
+                                    </button>
+                                    <div class="text-right min-w-[120px]">
+                                        <p class="text-2xl font-black text-slate-900">$1,200</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cart Item 2 -->
+                        <div
+                            class="bg-white rounded-[12px] border border-slate-100 p-8 shadow-sm relative group hover:shadow-md transition-shadow">
+                            <button
+                                class="absolute -top-3 -right-3 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-all z-10">
+                                <span class="material-symbols-outlined text-lg font-bold">close</span>
+                            </button>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-bold text-slate-900">forbes.com</h4>
+                                    <p class="text-sm font-medium text-slate-500 mt-1">8 competitor matches</p>
+                                </div>
+                                <div class="flex items-center gap-8">
+                                    <button
+                                        class="flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary/80 transition-colors">
+                                        <span class="material-symbols-outlined text-xl">add_circle</span>
+                                        Add Brief
+                                    </button>
+                                    <div class="text-right min-w-[120px]">
+                                        <p class="text-2xl font-black text-slate-900">$2,500</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cart Item 3 -->
+                        <div
+                            class="bg-white rounded-[12px] border border-slate-100 p-8 shadow-sm relative group hover:shadow-md transition-shadow">
+                            <button
+                                class="absolute -top-3 -right-3 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-all z-10">
+                                <span class="material-symbols-outlined text-lg font-bold">close</span>
+                            </button>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-bold text-slate-900">wired.com</h4>
+                                    <p class="text-sm font-medium text-slate-500 mt-1">5 competitor matches</p>
+                                </div>
+                                <div class="flex items-center gap-8">
+                                    <button
+                                        class="flex items-center gap-1.5 text-sm font-bold text-emerald-600 transition-colors">
+                                        <span class="material-symbols-outlined text-xl">check_circle</span>
+                                        Brief Attached
+                                    </button>
+                                    <div class="text-right min-w-[120px]">
+                                        <p class="text-2xl font-black text-slate-900">$850</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 3: Right (25%) Order Summary -->
+                <aside class="w-full lg:w-1/4 space-y-6 flex-shrink-0 lg:mt-[52px]">
+                    <div class="bg-white rounded-2xl border border-slate-100 p-8 shadow-xl shadow-slate-200/50">
+                        <h3 class="text-xl font-black text-slate-900 mb-8">Order Summary</h3>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex justify-between text-sm font-semibold text-slate-500">
+                                <span>Subtotal</span>
+                                <span class="text-slate-900">$4,550.00</span>
+                            </div>
+                            <div class="flex justify-between text-sm font-semibold text-slate-500">
+                                <span>Platform Fee (5%)</span>
+                                <span class="text-slate-900">$227.50</span>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-end justify-between">
+                                <div>
+                                    <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-1">Total
+                                        Amount</p>
+                                    <p class="text-3xl font-black text-primary">$4,777.50</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-primary hover:bg-primary/90 text-white font-black py-4 rounded-xl shadow-lg shadow-primary/25 transition-all text-lg mb-6">
+                            Complete Purchase
+                        </button>
+                        <div class="space-y-4">
+                            <div
+                                class="flex items-center gap-2 justify-center text-[10px] text-slate-400 uppercase font-black tracking-widest">
+                                <span class="material-symbols-outlined text-xs">lock</span>
+                                Secure Payment via Stripe
+                            </div>
+                            <div class="flex justify-center items-center gap-4 opacity-40 grayscale">
+                                <div
+                                    class="h-6 w-10 bg-slate-50 border border-slate-200 rounded flex items-center justify-center p-1">
+                                    <span class="text-[8px] font-black italic">VISA</span>
+                                </div>
+                                <div
+                                    class="h-6 w-10 bg-slate-50 border border-slate-200 rounded flex items-center justify-center p-1">
+                                    <span class="text-[8px] font-black">MC</span>
+                                </div>
+                                <div
+                                    class="h-6 w-10 bg-slate-50 border border-slate-200 rounded flex items-center justify-center p-1">
+                                    <span class="text-[8px] font-black">stripe</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-20">
+        <div class="max-w-[1440px] mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="material-symbols-outlined text-primary text-2xl font-bold">insights</span>
+                        <span class="text-xl font-black tracking-tight">LinkBridge</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed font-medium">
+                        The ultimate authority gap analyzer and marketplace for growth-focused SEO teams.
+                    </p>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-xs uppercase tracking-widest text-slate-900">Product</h6>
+                    <ul class="space-y-4 text-sm font-semibold text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">Gap Analyzer</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Marketplace</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Backlink Monitoring</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-xs uppercase tracking-widest text-slate-900">Resources</h6>
+                    <ul class="space-y-4 text-sm font-semibold text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">SEO Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Knowledge Base</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Webinars</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6 text-xs uppercase tracking-widest text-slate-900">Support</h6>
+                    <ul class="space-y-4 text-sm font-semibold text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">© 2024 LinkBridge SEO Solutions.
+                    All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
