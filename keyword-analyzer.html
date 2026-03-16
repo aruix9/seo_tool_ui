@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LinkBridge - Analyse Authority Gap</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7C3AED",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#171121",
+                        "background-alt": "#f9fafb",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .radar-grid {
+            background-image: radial-gradient(circle, #7C3AED 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(248, 250, 252, 0.8);
+        }
+
+        .pie-chart {
+            background: conic-gradient(#7C3AED 0% 13.5%,
+                    #94A3B8 13.5% 23.7%,
+                    #1e293b 23.7% 98.7%,
+                    #cbd5e1 98.7% 100%);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+    <!-- Header Section -->
+    <nav class="glass-nav sticky top-0 z-50 border-b border-primary/10">
+        <div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">insights</span>
+                <span class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">ButterSwipe</span>
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                    href="index.html">Audit</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                    href="keyword-analyzer.html">Keywords</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                    href="ai-analyzer.html">AI Analyzer</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-6">
+                    <a href="cart.html" class="relative text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-white rounded-full flex items-center justify-center text-[8px] font-bold text-white">4</span>
+                    </a>
+                    <button class="relative text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-white dark:border-slate-900 rounded-full flex items-center justify-center text-[8px] font-bold text-white">3</span>
+                    </button>
+                    <div class="hidden sm:flex items-center gap-4 border-l border-slate-200 dark:border-slate-800 pl-6">
+                        <div class="text-right">
+                            <p class="text-xs font-bold text-slate-900 dark:text-white">Alex Rivera</p>
+                            <span
+                                class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Pro
+                                Plan</span>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-purple-400 flex items-center justify-center text-white font-bold text-sm border-2 border-white dark:border-slate-800 shadow-sm">
+                            AR
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="w-full">
+        <!-- breadcrumb -->
+        <section class="max-w-[1440px] pt-8 px-6 mx-auto">
+            <div class="mb-8">
+                <nav class="flex items-center gap-2 mb-3 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                    <a class="hover:text-primary transition-colors" href="index.html">Home</a>
+                    <span class="text-slate-300">/</span>
+                    <span class="text-slate-600 dark:text-slate-200">Keywords Analyzer</span>
+                </nav>
+            </div>
+        </section>
+        <section class="max-w-[1440px] mx-auto px-6 pb-8 w-full">
+            <!-- Page Header -->
+            <div class="mb-8">
+                <h1 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-tight mb-2">
+                    Keywords Analyzer</h1>
+                <p class="text-slate-600 dark:text-slate-400 text-base">Analyze keyword metrics and discover new
+                    high-growth opportunities for your content.</p>
+            </div>
+            <!-- Tab Navigation -->
+            <div class="mb-8 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex gap-8">
+                    <button
+                        class="flex items-center border-b-2 border-primary text-primary pb-4 px-1 text-sm font-bold tracking-wide">
+                        Similar Keywords
+                    </button>
+                    <button
+                        class="flex items-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 pb-4 px-1 text-sm font-bold tracking-wide transition-all">
+                        Related Keywords
+                    </button>
+                    <button
+                        class="flex items-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 pb-4 px-1 text-sm font-bold tracking-wide transition-all">
+                        Question Keywords
+                    </button>
+                    <button
+                        class="flex items-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 pb-4 px-1 text-sm font-bold tracking-wide transition-all">
+                        Long Tail Keywords
+                    </button>
+                </div>
+            </div>
+            <!-- Main Search Form -->
+            <div
+                class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                    <div class="flex flex-col gap-2">
+                        <label
+                            class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Keyword</label>
+                        <input
+                            class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-sm focus:ring-primary focus:border-primary transition-all"
+                            placeholder="e.g. digital marketing" type="text" />
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label
+                            class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Source
+                            (Country)</label>
+                        <select
+                            class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-sm focus:ring-primary focus:border-primary transition-all">
+                            <option>United States (EN)</option>
+                            <option>United Kingdom (EN)</option>
+                            <option>Germany (DE)</option>
+                            <option>France (FR)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label
+                            class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Sort
+                            By</label>
+                        <select
+                            class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-sm focus:ring-primary focus:border-primary transition-all">
+                            <option>Volume (High to Low)</option>
+                            <option>Difficulty (Low to High)</option>
+                            <option>CPC (High to Low)</option>
+                        </select>
+                    </div>
+                    <button
+                        class="bg-primary hover:bg-primary/90 text-white font-bold py-2.5 px-6 rounded-lg transition-all flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[20px]">analytics</span>
+                        Analyze
+                    </button>
+                </div>
+            </div>
+            <!-- Results Table -->
+            <div
+                class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+                                <th
+                                    class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                    Keyword</th>
+                                <th
+                                    class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider text-right">
+                                    Volume</th>
+                                <th
+                                    class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                    Difficulty</th>
+                                <th
+                                    class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider text-right">
+                                    CPC</th>
+                                <th
+                                    class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                    Intents</th>
+                                <th
+                                    class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                    SERP Features</th>
+                                <th
+                                    class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                    Competition</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <!-- Row 1 -->
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-white">marketing
+                                    strategy tools</td>
+                                <td class="px-6 py-4 text-sm text-right text-slate-600 dark:text-slate-300">22.5k
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tight">Medium
+                                        (45)</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-right text-slate-600 dark:text-slate-300">$4.12
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex gap-1">
+                                        <span
+                                            class="bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 px-2 py-0.5 rounded text-[10px] font-medium">Informational</span>
+                                        <span
+                                            class="bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400 px-2 py-0.5 rounded text-[10px] font-medium">Commercial</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-400">
+                                    <div class="flex gap-2">
+                                        <span class="material-symbols-outlined text-[18px]">ads_click</span>
+                                        <span class="material-symbols-outlined text-[18px]">imagesmode</span>
+                                        <span class="material-symbols-outlined text-[18px]">featured_video</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 max-w-[100px]">
+                                        <div class="bg-primary h-1.5 rounded-full" style="width: 78%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-white">best seo
+                                    keyword research</td>
+                                <td class="px-6 py-4 text-sm text-right text-slate-600 dark:text-slate-300">18.2k
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tight">Hard
+                                        (82)</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-right text-slate-600 dark:text-slate-300">$12.50
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex gap-1">
+                                        <span
+                                            class="bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400 px-2 py-0.5 rounded text-[10px] font-medium">Commercial</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-400">
+                                    <div class="flex gap-2">
+                                        <span class="material-symbols-outlined text-[18px]">ads_click</span>
+                                        <span class="material-symbols-outlined text-[18px]">list_alt</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 max-w-[100px]">
+                                        <div class="bg-primary h-1.5 rounded-full" style="width: 92%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-white">free
+                                    keyword tool for bloggers</td>
+                                <td class="px-6 py-4 text-sm text-right text-slate-600 dark:text-slate-300">5.4k
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tight">Easy
+                                        (12)</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-right text-slate-600 dark:text-slate-300">$0.85
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex gap-1">
+                                        <span
+                                            class="bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 px-2 py-0.5 rounded text-[10px] font-medium">Informational</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-400">
+                                    <div class="flex gap-2">
+                                        <span class="material-symbols-outlined text-[18px]">help</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 max-w-[100px]">
+                                        <div class="bg-primary h-1.5 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-white">content
+                                    gap analysis template</td>
+                                <td class="px-6 py-4 text-sm text-right text-slate-600 dark:text-slate-300">3.1k
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tight">Medium
+                                        (34)</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-right text-slate-600 dark:text-slate-300">$2.45
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex gap-1">
+                                        <span
+                                            class="bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 px-2 py-0.5 rounded text-[10px] font-medium">Informational</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-400">
+                                    <div class="flex gap-2">
+                                        <span class="material-symbols-outlined text-[18px]">attachment</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 max-w-[100px]">
+                                        <div class="bg-primary h-1.5 rounded-full" style="width: 45%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination-like Footer -->
+                <div
+                    class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                    <span class="text-xs font-medium text-slate-500">Showing 1 to 4 of 124 keywords</span>
+                    <div class="flex gap-2">
+                        <button
+                            class="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-50">
+                            <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                        </button>
+                        <button
+                            class="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-50">
+                            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-background-light border-t border-slate-200 dark:border-slate-800 py-12 mt-auto">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl font-bold">insights</span>
+                        <span class="text-xl font-bold tracking-tight">ButterSwipe</span>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Empowering SEO professionals with the world's most advanced link building and authority analysis
+                        tools.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm mb-6 uppercase tracking-widest text-slate-400">Product</h5>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a class="hover:text-primary transition-colors" href="#">Authority Audit</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Link Prospector</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm mb-6 uppercase tracking-widest text-slate-400">Resources</h5>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a class="hover:text-primary transition-colors" href="#">SEO Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Case Studies</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Masterclass</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm mb-6 uppercase tracking-widest text-slate-400">Support</h5>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a class="hover:text-primary transition-colors" href="#">Documentation</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-200 dark:border-slate-800">
+                <p class="text-xs text-slate-400 mb-4 md:mb-0">© 2024 LinkBridge SEO SaaS. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="text-slate-400 hover:text-primary transition-colors" href="#">
+                        <span class="material-symbols-outlined text-xl">public</span>
+                    </a>
+                    <a class="text-slate-400 hover:text-primary transition-colors" href="#">
+                        <span class="material-symbols-outlined text-xl">alternate_email</span>
+                    </a>
+                    <a class="text-slate-400 hover:text-primary transition-colors" href="#">
+                        <span class="material-symbols-outlined text-xl">share</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
